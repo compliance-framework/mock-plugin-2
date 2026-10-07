@@ -6,3 +6,8 @@ lisa-design:
 - No policies are shipped in the repo; the test policy lives under testdata/policies. Real policies would come from an OCI bundle via the agent.
 - .goreleaser.yaml is copied verbatim from plugin-template (binary: plugin, linux+darwin), including its deprecated archives.format key, to stay identical to the template.
 - No GitHub workflows (task constraint).
+
+lisa-selfreview:
+pass 1 (strict): request_changes
+- [must-fix] CORE-TEST-001 main.go:44 MockPlugin.Configure: policy data kept by Configure and passed to the policy processor is not covered by a test (0b96b311687e)
+- [nit] CORE-STYLE-001 main.go:26 MockPlugin.config: field written but never read (7cc1ae9c5b92)
