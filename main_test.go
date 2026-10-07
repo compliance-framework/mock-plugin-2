@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"testing"
 
 	"github.com/compliance-framework/agent/runner"
@@ -14,12 +15,17 @@ import (
 	"google.golang.org/protobuf/types/known/structpb"
 )
 
-// fakeApiHelper records what the plugin sends to the agent.
+// fakeApiHelper records what the plugin sends to the agent. A non-nil err is
+// returned from CreateEvidence instead of recording.
 type fakeApiHelper struct {
 	evidence []*proto.Evidence
+	err      error
 }
 
 func (f *fakeApiHelper) CreateEvidence(_ context.Context, evidence []*proto.Evidence) error {
+	if f.err != nil {
+		return f.err
+	}
 	f.evidence = append(f.evidence, evidence...)
 	return nil
 }
@@ -124,6 +130,18 @@ func TestEvalPassesPolicyDataFromConfigure(t *testing.T) {
 	}
 	if got["threshold"] != float64(3) {
 		t.Fatalf("policy data = %v, want threshold 3", got)
+	}
+}
+
+func TestEvalSendFailureFails(t *testing.T) {
+	sendErr := errors.New("agent unavailable")
+	api := &fakeApiHelper{err: sendErr}
+	resp, err := newTestPlugin().Eval(&proto.EvalRequest{PolicyPaths: []string{"testdata/policies"}}, api)
+	if !errors.Is(err, sendErr) {
+		t.Fatalf("Eval error = %v, want %v", err, sendErr)
+	}
+	if resp.GetStatus() != proto.ExecutionStatus_FAILURE {
+		t.Fatalf("Eval status = %v, want FAILURE", resp.GetStatus())
 	}
 }
 
