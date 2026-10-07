@@ -1,0 +1,21 @@
+# Shared plugin release from compliance-framework/workflows (pinned to a commit SHA): goreleaser
+# archives on the GitHub release, then gooci upload to ghcr.io. mock-plugin-2 is a legacy
+# protocol v1 plugin, so the OCI annotation must say 1.
+name: release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    uses: compliance-framework/workflows/.github/workflows/release-go-plugin.yml@084cc5d5ee6a40455f84b4f3108cfb254654ae28
+    with:
+      protocol-version: "1"
+    permissions:
+      contents: write
+      packages: write
+    secrets: inherit
