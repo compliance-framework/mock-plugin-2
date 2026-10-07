@@ -1,0 +1,16 @@
+# Changelog
+
+## 0.1.0 (2026-10-07)
+
+
+### Features
+
+* **release:** adopt release automation (pinned to workflows@084cc5d) ([#4](https://github.com/compliance-framework/mock-plugin-2/issues/4)) ([30077b3](https://github.com/compliance-framework/mock-plugin-2/commit/30077b3dd96e519323a9a30a1e26d743f4310e1d))
+
+
+### Bug Fixes
+
+* **deps:** bump agent to v0.9.0 ([#10](https://github.com/compliance-framework/mock-plugin-2/issues/10)) ([0e2049e](https://github.com/compliance-framework/mock-plugin-2/commit/0e2049ea26f7a3e537ede4b533bfa1481b49dfee))
+* **deps:** bump mock-agent to v0.1.0 ([#11](https://github.com/compliance-framework/mock-plugin-2/issues/11)) ([e61b38a](https://github.com/compliance-framework/mock-plugin-2/commit/e61b38a92eda9ea4d66ed8c3ea54b8fb97f0979e))
+* **release:** keep release candidates as prereleases ([#9](https://github.com/compliance-framework/mock-plugin-2/issues/9)) ([a8d35cd](https://github.com/compliance-framework/mock-plugin-2/commit/a8d35cd2122aed1894d64484d0e020e47ccba4cf))
+* **release:** start the first release at 0.1.0 ([#6](https://github.com/compliance-framework/mock-plugin-2/issues/6)) ([1a3ed64](https://github.com/compliance-framework/mock-plugin-2/commit/1a3ed6410bf53f64b517ca9954ddf2099e7a9bb6))
