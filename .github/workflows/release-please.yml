@@ -1,4 +1,4 @@
-# Shared release-please from compliance-framework/workflows (pinned to a commit SHA): opens the
+# Shared release-please from compliance-framework/workflows (tracking main until v1 is tagged): opens the
 # release PR and, once it merges, tags the release and creates the GitHub release.
 name: release-please
 
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   release-please:
-    uses: compliance-framework/workflows/.github/workflows/release-please.yml@ra/w1-s1-t05b-repo-settings-workflow
+    uses: compliance-framework/workflows/.github/workflows/release-please.yml@main
     permissions:
       contents: read
     secrets: inherit
