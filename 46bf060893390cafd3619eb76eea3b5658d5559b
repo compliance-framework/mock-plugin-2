@@ -1,0 +1,6 @@
+lisa-design:
+- All shared refs (ci-go-plugin, notify-failure + workflows-ref, release-checks, release-please, release-go-plugin, preview) pinned to the full SHA 084cc5d5ee6a40455f84b4f3108cfb254654ae28 (head of workflows#12), not @v1: trial before the tag exists.
+- protocol-version "1" passed to BOTH release-go-plugin.yml and preview.yml: mock-plugin-2 is a legacy v1 plugin and both default to "2"; the OCI annotation must say 1 on previews too.
+- ci.yml pull_request types gain labeled/unlabeled because release-checks reads labels from the event (README: re-check after adding release:major-approved).
+- release-please-config.json is generated from defaults.json (every key, identical values) + packages; the shared workflow warns on any drift.
+- go.mod untouched: mock-agent stays at a pseudo-version, so the first release PR is EXPECTED to fail internal-deps-final until ccf-bump (stage 3). Agent v0.8.1 pin unchanged.
