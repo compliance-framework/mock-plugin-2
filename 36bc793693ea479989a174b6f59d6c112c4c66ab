@@ -1,3 +1,6 @@
 lisa-addressed:
 self-review pass 2:
 - CORE-TEST-001: added TestEvalSendFailureFails (fake ApiHelper returns an error; Eval returns FAILURE and wraps nothing away: errors.Is holds).
+
+lisa-selfreview:
+pass 3 (strict): approve, no findings. Design notes (protocol v1, agent v0.8.1 pin) re-checked and kept.
