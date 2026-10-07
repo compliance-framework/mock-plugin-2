@@ -1,3 +1,9 @@
 lisa-selfreview:
 pass 1 (verdict approve after thinker): local verify green (gofmt, go mod tidy, go test, golangci-lint v2.11.4 with the shared .golangci.yml at the pinned SHA: 0 issues, goreleaser check: deprecated archives.format only -> exit 2 = warning in shared CI).
 - [should-fix, CORE-DUP-001, fp 9e661aa07809] .github/workflows/ci.yml: the workflows SHA appears 3x (two uses:, one workflows-ref). DISMISSED: uses: cannot take expressions and notify-failure's README requires workflows-ref to equal the called ref; deliberate per the design note.
+
+lisa-design:
+- Caller pins compliance-framework/workflows to full SHA a94553bdc479fac47fbea7febbf57dcb615dbc87 (head of workflows#5) for the W1-S1 trial, not @v1; notify-failure gets the same SHA as workflows-ref because a reusable workflow cannot see its own ref.
+- pull_request listens for opened/edited/synchronize/reopened so ci-common's pr-title job re-checks edited titles (README guidance).
+- Top-level permissions: {}; each job grants only what the README documents (ci: actions/contents/pull-requests read + security-events write; notify: actions/contents read).
+- No repo-local .golangci.yml added: the shared base config is used deliberately. v1 protocol and agent v0.8.1 pin are intentional for this mock and must not change.
