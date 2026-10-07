@@ -23,7 +23,6 @@ const pluginName = "mock-plugin-2"
 // MockPlugin is a protocol v1 plugin: it implements runner.Runner only.
 type MockPlugin struct {
 	logger     hclog.Logger
-	config     map[string]string
 	policyData map[string]interface{}
 }
 
@@ -37,9 +36,9 @@ func (p *MockPlugin) Name() string {
 	return pluginName
 }
 
-// Configure accepts any config. It keeps the config and policy data for Eval.
+// Configure accepts any config and ignores it. It keeps the policy data,
+// which Eval passes to every policy evaluation.
 func (p *MockPlugin) Configure(req *proto.ConfigureRequest) (*proto.ConfigureResponse, error) {
-	p.config = req.GetConfig()
 	p.policyData = nil
 	if policyData := req.GetPolicyData(); policyData != nil {
 		p.policyData = policyData.AsMap()

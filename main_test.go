@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
 	"github.com/compliance-framework/agent/runner"
@@ -10,6 +11,7 @@ import (
 	goplugin "github.com/hashicorp/go-plugin"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // fakeApiHelper records what the plugin sends to the agent.
@@ -95,6 +97,33 @@ func TestEvalProducesOneEvidence(t *testing.T) {
 	}
 	if ev.GetPolicyEvaluation().GetPolicyPath() != "testdata/policies" {
 		t.Errorf("policy evaluation path = %q", ev.GetPolicyEvaluation().GetPolicyPath())
+	}
+}
+
+func TestEvalPassesPolicyDataFromConfigure(t *testing.T) {
+	policyData, err := structpb.NewStruct(map[string]interface{}{"threshold": 3})
+	if err != nil {
+		t.Fatalf("NewStruct: %v", err)
+	}
+	p := newTestPlugin()
+	if _, err := p.Configure(&proto.ConfigureRequest{PolicyData: policyData}); err != nil {
+		t.Fatalf("Configure: %v", err)
+	}
+
+	api := &fakeApiHelper{}
+	if _, err := p.Eval(&proto.EvalRequest{PolicyPaths: []string{"testdata/policies"}}, api); err != nil {
+		t.Fatalf("Eval: %v", err)
+	}
+	if len(api.evidence) != 1 {
+		t.Fatalf("got %d evidence, want 1", len(api.evidence))
+	}
+
+	var got map[string]interface{}
+	if err := json.Unmarshal(api.evidence[0].GetPolicyEvaluation().GetPolicyData(), &got); err != nil {
+		t.Fatalf("decode policy data %q: %v", api.evidence[0].GetPolicyEvaluation().GetPolicyData(), err)
+	}
+	if got["threshold"] != float64(3) {
+		t.Fatalf("policy data = %v, want threshold 3", got)
 	}
 }
 
