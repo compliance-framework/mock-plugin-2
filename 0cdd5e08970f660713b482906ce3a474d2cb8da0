@@ -1,0 +1,4 @@
+lisa-addressed:
+self-review pass 1:
+- CORE-TEST-001 (0b96b311687e): added TestEvalPassesPolicyDataFromConfigure, asserting policy data given to Configure reaches the evidence's PolicyEvaluation.PolicyData.
+- CORE-STYLE-001 (7cc1ae9c5b92): dropped the unused MockPlugin.config field; Configure accepts and ignores the config.
