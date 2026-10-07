@@ -1,0 +1,3 @@
+lisa-addressed:
+self-review pass 2:
+- CORE-TEST-001: added TestEvalSendFailureFails (fake ApiHelper returns an error; Eval returns FAILURE and wraps nothing away: errors.Is holds).
