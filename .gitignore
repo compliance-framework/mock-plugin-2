@@ -1,0 +1,4 @@
+dist/
+/plugin
+/mock-plugin-2
+cover.out
