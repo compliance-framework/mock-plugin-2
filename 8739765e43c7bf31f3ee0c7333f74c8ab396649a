@@ -1,0 +1,8 @@
+lisa-design:
+- Protocol v1 is DELIBERATE: MockPlugin implements runner.Runner only (no Init) and main serves runner.RunnerGRPCPlugin, not RunnerV2GRPCPlugin. It is the negative case for plugin-probe ("v1 -> deprecation candidate"). Do not add Init or switch to RunnerV2GRPCPlugin; TestIsProtocolV1 and TestServedInitIsUnimplemented guard this.
+- The agent pin at v0.8.1 is DELIBERATE: one minor behind the latest (v0.9.0) so the health report shows "behind" and ccf-bump has something to do. Do not bump it. v0.8.1 is a git tag without a GitHub release; that is fine for Go modules.
+- mock-agent is pinned at its main pseudo-version (no tags exist); MockPlugin implements mock-agent/runner.Plugin (Name() == "mock-plugin-2").
+- Eval uses a fixed input and policy-manager's PolicyProcessor.GenerateResults per policy path; evidence is sent only when there is some, and any policy error makes the response FAILURE while still sending the evidence that was produced (same shape as plugin-github-settings).
+- No policies are shipped in the repo; the test policy lives under testdata/policies. Real policies would come from an OCI bundle via the agent.
+- .goreleaser.yaml is copied verbatim from plugin-template (binary: plugin, linux+darwin), including its deprecated archives.format key, to stay identical to the template.
+- No GitHub workflows (task constraint).
