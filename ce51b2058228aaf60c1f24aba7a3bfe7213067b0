@@ -1,0 +1,3 @@
+lisa-selfreview:
+pass 1 (verdict approve after thinker): local verify green (gofmt, go mod tidy, go test, golangci-lint v2.11.4 with the shared .golangci.yml at the pinned SHA: 0 issues, goreleaser check: deprecated archives.format only -> exit 2 = warning in shared CI).
+- [should-fix, CORE-DUP-001, fp 9e661aa07809] .github/workflows/ci.yml: the workflows SHA appears 3x (two uses:, one workflows-ref). DISMISSED: uses: cannot take expressions and notify-failure's README requires workflows-ref to equal the called ref; deliberate per the design note.
