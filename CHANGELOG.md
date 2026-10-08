@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.0...v0.1.1) (2026-10-08)
+
+
+### Bug Fixes
+
+* **deps:** bump mock-agent to v0.1.1 ([#23](https://github.com/compliance-framework/mock-plugin-2/issues/23)) ([f8edbfe](https://github.com/compliance-framework/mock-plugin-2/commit/f8edbfe6c57ecaf698f5d2623a4a1f6ce2db67d4))
+* **deps:** update module google.golang.org/grpc to v1.83.1 [security] ([#16](https://github.com/compliance-framework/mock-plugin-2/issues/16)) ([8f1c8d5](https://github.com/compliance-framework/mock-plugin-2/commit/8f1c8d5cbb3454bce2293303f36322572cc83428))
+
 ## 0.1.0 (2026-10-07)
 
 
