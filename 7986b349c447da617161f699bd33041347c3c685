@@ -1,0 +1,3 @@
+lisa-design:
+- Only ci.yml's pull_request types gains `closed`; no pin, job or other file changes (spec W1-S3-MOCK-CLOSED). The shared v1.3.0 workflows skip their jobs on a closed PR, so the extra run is near-empty; notify-failure.yml needs the close event to mark the needs-human card handled and close the CI incident.
+- Commit type `ci:` is hidden from release-please, so this produces no release.
