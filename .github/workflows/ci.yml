@@ -27,11 +27,11 @@ jobs:
 
   notify:
     needs: [ci, release-checks]
-    if: failure()
+    if: always()
     uses: compliance-framework/workflows/.github/workflows/notify-failure.yml@main
     with:
+      needs: ${{ toJSON(needs) }}
       workflows-ref: main
     permissions:
-      actions: read
       contents: read
     secrets: inherit
