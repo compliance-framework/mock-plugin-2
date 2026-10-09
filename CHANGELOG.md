@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.2](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.1...v0.1.2) (2026-10-09)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#18](https://github.com/compliance-framework/mock-plugin-2/issues/18)) ([7acbfc5](https://github.com/compliance-framework/mock-plugin-2/commit/7acbfc5d266ec2e905373acdfa2d8cba57c58714))
+* **deps:** update module golang.org/x/net to v0.60.0 [security] ([#14](https://github.com/compliance-framework/mock-plugin-2/issues/14)) ([0e86328](https://github.com/compliance-framework/mock-plugin-2/commit/0e863287b420bbf1edd9a8b16125e35b81951b15))
+* **deps:** update module google.golang.org/grpc to v1.83.2 [security] ([#20](https://github.com/compliance-framework/mock-plugin-2/issues/20)) ([ef619b2](https://github.com/compliance-framework/mock-plugin-2/commit/ef619b2a8d1be9d748f112ee04b172914e1c84e4))
+
 ## [0.1.1](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.0...v0.1.1) (2026-10-08)
 
 
