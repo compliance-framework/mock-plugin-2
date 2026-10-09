@@ -1,0 +1,4 @@
+lisa-design:
+- The caller is a byte-for-byte copy of mock-api's .github/workflows/cut-prerelease.yml, pinned to workflows v1.3.0 (ec58cea2...), so every mock exercises the same reusable workflow at the same SHA.
+- No rc-test (fix:) change: mock-plugin-2 already has an open release-please PR (#24), which cut-prerelease reads the next version from. A ci: commit is non-releasable, so it does not disturb that release PR.
+- Trigger is workflow_dispatch only; it is not dispatched as part of this task.
