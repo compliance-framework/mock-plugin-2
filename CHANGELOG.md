@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.3...v0.1.4) (2026-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update security fixes (gomod) [security] ([#39](https://github.com/compliance-framework/mock-plugin-2/issues/39)) ([b9e1c6c](https://github.com/compliance-framework/mock-plugin-2/commit/b9e1c6c9946658ce75f1de5f2021398587f5e98e))
+
 ## [0.1.3](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.2...v0.1.3) (2026-10-14)
 
 
