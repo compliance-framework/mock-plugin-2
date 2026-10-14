@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.2...v0.1.3) (2026-10-14)
+
+
+### Bug Fixes
+
+* **deps:** bump agent to v0.9.1, workflows to v1.6.0 ([#35](https://github.com/compliance-framework/mock-plugin-2/issues/35)) ([60d7c7c](https://github.com/compliance-framework/mock-plugin-2/commit/60d7c7cb5954e3f95c138df0a98b312b4849bd95))
+* **deps:** bump mock-agent to v0.1.2 ([#37](https://github.com/compliance-framework/mock-plugin-2/issues/37)) ([a0dde35](https://github.com/compliance-framework/mock-plugin-2/commit/a0dde352966ba6e1359c5543059a8a835bbd6821))
+
 ## [0.1.2](https://github.com/compliance-framework/mock-plugin-2/compare/v0.1.1...v0.1.2) (2026-10-09)
 
 
